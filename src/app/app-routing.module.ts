@@ -6,6 +6,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ChartsComponent } from './charts/charts.component';
 import { TablesComponent } from './tables/tables.component';
+import { ColorsComponent } from './colors/colors.component';
+import { BordersComponent } from './borders/borders.component';
+import { AnimationsComponent } from './animations/animations.component';
+import { OtherComponent } from './other/other.component';
 
 const routes: Routes = [
   {
@@ -33,6 +37,31 @@ const routes: Routes = [
   {
     path: 'tables',
     component: TablesComponent
+  },
+  {
+    path: 'utilities',
+    children: [
+      {
+        path: '',
+        component: OtherComponent
+      },
+      {
+        path: 'animations',
+        component: AnimationsComponent
+      },
+      {
+        path: 'borders',
+        component: BordersComponent
+      },
+      {
+        path: 'colors',
+        component: ColorsComponent
+      },
+      {
+        path: 'other',
+        component: OtherComponent
+      }
+    ]
   },
   {
     path: '**',
