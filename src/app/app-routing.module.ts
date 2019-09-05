@@ -68,6 +68,18 @@ const routes: Routes = [
     ]
   },
   {
+    path: 'pages',
+    loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule)
+  },
+  {
+    path: '404',
+    component: NotFoundComponent
+  },
+  {
+    path: 'login',
+    redirectTo: 'pages/login'
+  },
+  {
     path: '**',
     component: NotFoundComponent
   }

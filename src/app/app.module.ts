@@ -15,6 +15,7 @@ import { AnimationsComponent } from './animations/animations.component';
 import { OtherComponent } from './other/other.component';
 
 import { HttpClientModule } from '@angular/common/http';
+import { PagesModule } from './pages/pages.module';
 
 
 @NgModule({
