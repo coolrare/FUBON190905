@@ -10,8 +10,5 @@ import { chartPieDemo } from './chartPieDemo';
 export class AppComponent implements OnInit {
   title = 'demo1';
 
-  ngOnInit(): void {
-    chartAreaDemo();
-    chartPieDemo();
-  }
+  ngOnInit(): void {}
 }
