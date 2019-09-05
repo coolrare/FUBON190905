@@ -16,6 +16,8 @@ import { OtherComponent } from './other/other.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { PagesModule } from './pages/pages.module';
+import { LayoutComponent } from './layout/layout.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -30,7 +32,9 @@ import { PagesModule } from './pages/pages.module';
     ColorsComponent,
     BordersComponent,
     AnimationsComponent,
-    OtherComponent
+    OtherComponent,
+    LayoutComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
