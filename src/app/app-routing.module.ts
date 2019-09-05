@@ -14,10 +14,12 @@ import { LayoutComponent } from './layout/layout.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './auth.guard';
+import { CanDeactivateLoginGuard } from './can-deactivate-login.guard';
 
 const routes: Routes = [
   {
     path: 'login',
+    canDeactivate: [ CanDeactivateLoginGuard ],
     component: LoginComponent
   },
   {
