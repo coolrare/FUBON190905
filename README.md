@@ -1,47 +1,7 @@
-# Demo1
+# RxJS 學習資源
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.0.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Publish
-
-```sh
-#!/bin/bash
-
-set -e
-
-ng build --prod --output-path dist/demo1 --progress=false --base-href=/DCT-108014/
-cd dist/demo1
-
-git init
-git co -b gh-pages
-git add .
-git commit -m "Initial commit for gh-pages"
-git remote add origin https://github.com/coolrare/DCT-108014.git
-git push -f origin gh-pages
-
-rm -rf .git
-```
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+- [RxJS 官方文件](https://rxjs-dev.firebaseapp.com/)
+- [30 天精通 RxJS](https://ithelp.ithome.com.tw/users/20103367/ironman/1199) - 有點舊，但觀念是通的
+- [learn-rxjs](https://www.learnrxjs.io/)
+- [在 Angular 中應用 RxJS 的 operators (1) - 基礎篇](https://wellwind.idv.tw/blog/2018/11/13/mastering-angular-29-angular-with-rxjs-basic/)
+- [在 Angular 中應用 RxJS 的 operators (2) - 進階應用](https://wellwind.idv.tw/blog/2018/11/14/mastering-angular-30-angular-with-rxjs-advanced/)
