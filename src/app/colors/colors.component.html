@@ -8,7 +8,7 @@
 <div class="row">
 
   <!-- First Column -->
-  <div class="col-lg-4">
+  <div class="col-lg-4" *ngIf="type === '1' || type === ''">
 
     <!-- Custom Text Color Utilities -->
     <div class="card shadow mb-4">
@@ -42,7 +42,7 @@
   </div>
 
   <!-- Second Column -->
-  <div class="col-lg-4">
+  <div class="col-lg-4" *ngIf="type === '2' || type === ''">
 
     <!-- Background Gradient Utilities -->
     <div class="card shadow mb-4">
@@ -61,7 +61,7 @@
   </div>
 
   <!-- Third Column -->
-  <div class="col-lg-4">
+  <div class="col-lg-4" *ngIf="type === ''">
 
     <!-- Grayscale Utilities -->
     <div class="card shadow mb-4">

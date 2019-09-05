@@ -14,6 +14,9 @@ import { BordersComponent } from './borders/borders.component';
 import { AnimationsComponent } from './animations/animations.component';
 import { OtherComponent } from './other/other.component';
 
+import { HttpClientModule } from '@angular/common/http';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +33,8 @@ import { OtherComponent } from './other/other.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
