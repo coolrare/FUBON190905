@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { NgForm, FormGroup, FormBuilder } from '@angular/forms';
+import { NgForm, FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -25,8 +25,12 @@ export class LoginComponent implements OnInit {
     document.body.className = 'bg-gradient-primary';
 
     this.form = this.fb.group({
-      username: 'will.huang@miniasp.com',
-      password: '123',
+      username: ['will.huang@miniasp.com',
+                  [Validators.required, Validators.email]
+                ],
+      password: ['123',
+                  [Validators.required, Validators.minLength(3)]
+                ],
       rememberMe: true
     });
   }
