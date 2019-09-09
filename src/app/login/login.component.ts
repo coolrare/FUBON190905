@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { NgForm, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { NgForm, FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -25,16 +25,38 @@ export class LoginComponent implements OnInit {
     document.body.className = 'bg-gradient-primary';
 
     this.form = this.fb.group({
-      login: this.fb.group({
-        username: ['will.huang@miniasp.com',
-          [Validators.required, Validators.email]
-        ],
-        password: ['123',
-          [Validators.required, Validators.minLength(3)]
-        ],
-      }),
+      ids: this.fb.array([
+        this.fb.group({
+          username: ['doggy.huang@gmail.com',
+            [Validators.required, Validators.email]
+          ],
+          password: ['123',
+            [Validators.required, Validators.minLength(3)]
+          ],
+        }),
+        this.fb.group({
+          username: ['will.huang@miniasp.com',
+            [Validators.required, Validators.email]
+          ],
+          password: ['123',
+            [Validators.required, Validators.minLength(3)]
+          ],
+        })
+      ]),
       rememberMe: true
     });
+  }
+
+  addNewLogin() {
+    const arr = this.form.get('ids') as FormArray;
+    arr.push(this.fb.group({
+      username: ['',
+        [Validators.required, Validators.email]
+      ],
+      password: ['',
+        [Validators.required, Validators.minLength(3)]
+      ],
+    }));
   }
 
   onSubmit() {
