@@ -41,6 +41,17 @@ form.errors = {{form.errors | json}}</pre>
                           <span *ngIf="group.get('username').invalid && group.get('username')['errors']?.required">請輸入帳號</span>
                           <span *ngIf="group.get('username').invalid && group.get('username')['errors']?.email">請輸入合法的 E-mail 信箱地址</span>
                         </div>
+
+                <pre>group.get('username').value = {{group.get('username').value|json}}
+group.get('username').pristine = {{group.get('username').pristine}}
+group.get('username').dirty = {{group.get('username').dirty}}
+group.get('username').touched = {{group.get('username').touched}}
+group.get('username').untouched = {{group.get('username').untouched}}
+group.get('username').disabled = {{group.get('username').disabled}}
+group.get('username').enabled = {{group.get('username').enabled}}
+group.get('username').valid = {{group.get('username').valid}}
+group.get('username').invalid = {{group.get('username').invalid}}
+group.get('username').errors = {{group.get('username').errors | json}}</pre>
                         <div class="form-group" [class.input-error]="f.submitted && group.get('password').invalid">
                           <input type="password" class="form-control form-control-user" id="exampleInputPassword"
                             placeholder="Password"

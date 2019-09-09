@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgForm, FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
+import { forbiddenWill } from '../shared/forbiddenWill';
 
 @Component({
   selector: 'app-login',
@@ -28,15 +29,17 @@ export class LoginComponent implements OnInit {
       ids: this.fb.array([
         this.fb.group({
           username: ['',
-            [Validators.required, Validators.email]
+            [Validators.required, Validators.email, forbiddenWill]
           ],
           password: ['',
             [Validators.required, Validators.minLength(3)]
           ],
+        }, {
+          validators: []
         }),
         this.fb.group({
           username: ['',
-            [Validators.required, Validators.email]
+            [Validators.required, Validators.email, forbiddenWill]
           ],
           password: ['',
             [Validators.required, Validators.minLength(3)]
@@ -51,7 +54,7 @@ export class LoginComponent implements OnInit {
     const arr = this.form.get('ids') as FormArray;
     arr.push(this.fb.group({
       username: ['',
-        [Validators.required, Validators.email]
+        [Validators.required, Validators.email, forbiddenWill]
       ],
       password: ['',
         [Validators.required, Validators.minLength(3)]
