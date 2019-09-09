@@ -16,14 +16,25 @@
                   <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                 </div>
                 <pre>{{data|json}}</pre>
-                <form class="user">
-                  <div class="form-group" [class.input-error]="mUsername.invalid">
+                <pre>form.value = {{form.value|json}}
+form.submitted = {{form.submitted}}
+form.pristine = {{form.pristine}}
+form.dirty = {{form.dirty}}
+form.touched = {{form.touched}}
+form.untouched = {{form.untouched}}
+form.disabled = {{form.disabled}}
+form.enabled = {{form.enabled}}
+form.valid = {{form.valid}}
+form.invalid = {{form.invalid}}
+form.errors = {{form.errors | json}}</pre>
+                <form class="user" (ngSubmit)="onSubmit(form)" #form="ngForm">
+                  <div class="form-group" [class.input-error]="form.submitted && mUsername.invalid">
                     <input type="email" class="form-control form-control-user" id="exampleInputEmail"
                       aria-describedby="emailHelp" placeholder="Enter Email Address..."
                       [(ngModel)]="data.username" name="username"
                       #mUsername="ngModel" required email>
-                    <span *ngIf="mUsername.invalid && mUsername['errors'].required">請輸入帳號</span>
-                    <span *ngIf="mUsername.invalid && mUsername['errors'].email">請輸入合法的 E-mail 信箱地址</span>
+                    <span *ngIf="mUsername.invalid && mUsername['errors']?.required">請輸入帳號</span>
+                    <span *ngIf="mUsername.invalid && mUsername['errors']?.email">請輸入合法的 E-mail 信箱地址</span>
                       <pre>mUsername.value = {{mUsername.value}}
 mUsername.pristine = {{mUsername.pristine}}
 mUsername.dirty = {{mUsername.dirty}}
@@ -35,7 +46,7 @@ mUsername.valid = {{mUsername.valid}}
 mUsername.invalid = {{mUsername.invalid}}
 mUsername.errors = {{mUsername.errors | json}}</pre>
                   </div>
-                  <div class="form-group" [class.input-error]="mPassword.touched && mPassword.invalid">
+                  <div class="form-group" [class.input-error]="form.submitted && mPassword.invalid">
                     <input type="password" class="form-control form-control-user" id="exampleInputPassword"
                       placeholder="Password"
                       [(ngModel)]="data.password" name="password"
@@ -59,7 +70,7 @@ mPassword.errors = {{mPassword.errors | json}}</pre>
                       <label class="custom-control-label" for="customCheck">Remember Me</label>
                     </div>
                   </div>
-                  <button type="button" (click)="login()" class="btn btn-primary btn-user btn-block">
+                  <button type="submit" class="btn btn-primary btn-user btn-block">
                     Login
                   </button>
                   <hr>

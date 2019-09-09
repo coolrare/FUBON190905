@@ -23,10 +23,14 @@ export class LoginComponent implements OnInit {
     document.body.className = 'bg-gradient-primary';
   }
 
-  login() {
-    // 實際呼叫登入 API
-    localStorage.setItem('apiKey', 'xxxxxxxxxx');
-    this.router.navigateByUrl('/');
+  onSubmit(form: NgForm) {
+    console.log(form.submitted);
+    if (form.valid) {
+      // TODO: Submit form by HttpClient
+      // 實際呼叫登入 API
+      localStorage.setItem('apiKey', 'xxxxxxxxxx');
+      this.router.navigateByUrl('/');
+    }
   }
 
 }
