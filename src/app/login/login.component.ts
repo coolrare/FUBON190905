@@ -9,11 +9,18 @@ import { NgForm } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
+  data: any = {
+    username: 'doggy.huang@gmail.com',
+    password: '123',
+    rememberMe: true
+  };
+
   @ViewChild(NgForm, { static: true }) form: NgForm;
 
   constructor(private router: Router) { }
 
   ngOnInit() {
+    document.body.className = 'bg-gradient-primary';
   }
 
   login() {
