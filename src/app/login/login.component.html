@@ -17,11 +17,13 @@
                 </div>
                 <pre>{{data|json}}</pre>
                 <form class="user">
-                  <div class="form-group">
+                  <div class="form-group" [class.input-error]="mUsername.invalid">
                     <input type="email" class="form-control form-control-user" id="exampleInputEmail"
                       aria-describedby="emailHelp" placeholder="Enter Email Address..."
                       [(ngModel)]="data.username" name="username"
                       #mUsername="ngModel" required email>
+                    <span *ngIf="mUsername.invalid && mUsername['errors'].required">請輸入帳號</span>
+                    <span *ngIf="mUsername.invalid && mUsername['errors'].email">請輸入合法的 E-mail 信箱地址</span>
                       <pre>mUsername.value = {{mUsername.value}}
 mUsername.pristine = {{mUsername.pristine}}
 mUsername.dirty = {{mUsername.dirty}}
@@ -33,11 +35,21 @@ mUsername.valid = {{mUsername.valid}}
 mUsername.invalid = {{mUsername.invalid}}
 mUsername.errors = {{mUsername.errors | json}}</pre>
                   </div>
-                  <div class="form-group">
+                  <div class="form-group" [class.input-error]="mPassword.touched && mPassword.invalid">
                     <input type="password" class="form-control form-control-user" id="exampleInputPassword"
                       placeholder="Password"
                       [(ngModel)]="data.password" name="password"
-                      #mPassword="ngModel">
+                      #mPassword="ngModel" required>
+                      <pre>mPassword.value = {{mPassword.value}}
+mPassword.pristine = {{mPassword.pristine}}
+mPassword.dirty = {{mPassword.dirty}}
+mPassword.touched = {{mPassword.touched}}
+mPassword.untouched = {{mPassword.untouched}}
+mPassword.disabled = {{mPassword.disabled}}
+mPassword.enabled = {{mPassword.enabled}}
+mPassword.valid = {{mPassword.valid}}
+mPassword.invalid = {{mPassword.invalid}}
+mPassword.errors = {{mPassword.errors | json}}</pre>
                   </div>
                   <div class="form-group">
                     <div class="custom-control custom-checkbox small">

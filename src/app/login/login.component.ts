@@ -11,7 +11,7 @@ export class LoginComponent implements OnInit {
 
   data: any = {
     username: 'doggy.huang@gmail.com',
-    password: '123',
+    password: '',
     rememberMe: true
   };
 
