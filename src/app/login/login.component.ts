@@ -25,19 +25,20 @@ export class LoginComponent implements OnInit {
     document.body.className = 'bg-gradient-primary';
 
     this.form = this.fb.group({
-      username: ['will.huang@miniasp.com',
-                  [Validators.required, Validators.email]
-                ],
-      password: ['123',
-                  [Validators.required, Validators.minLength(3)]
-                ],
+      login: this.fb.group({
+        username: ['will.huang@miniasp.com',
+          [Validators.required, Validators.email]
+        ],
+        password: ['123',
+          [Validators.required, Validators.minLength(3)]
+        ],
+      }),
       rememberMe: true
     });
   }
 
-  onSubmit(form: NgForm) {
-    console.log(form.submitted);
-    if (form.valid) {
+  onSubmit() {
+    if (this.form.valid) {
       // TODO: Submit form by HttpClient
       // 實際呼叫登入 API
       localStorage.setItem('apiKey', 'xxxxxxxxxx');

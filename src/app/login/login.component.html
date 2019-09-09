@@ -29,37 +29,41 @@ form.invalid = {{form.invalid}}
 form.errors = {{form.errors | json}}</pre>
                 <form [formGroup]="form" class="user" (ngSubmit)="onSubmit(f)" #f="ngForm">
 
-                  <div class="form-group" [class.input-error]="f.submitted && form.get('username').invalid">
+                  <div formGroupName="login">
+
+                  <div class="form-group" [class.input-error]="f.submitted && form.get('login.username').invalid">
                     <input type="email" class="form-control form-control-user" id="exampleInputEmail"
                       aria-describedby="emailHelp" placeholder="Enter Email Address..."
                       formControlName="username">
-                    <span *ngIf="form.get('username').invalid && form.get('username')['errors']?.required">請輸入帳號</span>
-                    <span *ngIf="form.get('username').invalid && form.get('username')['errors']?.email">請輸入合法的 E-mail 信箱地址</span>
-                      <pre>form.get('username').value = {{form.get('username').value}}
-form.get('username').pristine = {{form.get('username').pristine}}
-form.get('username').dirty = {{form.get('username').dirty}}
-form.get('username').touched = {{form.get('username').touched}}
-form.get('username').untouched = {{form.get('username').untouched}}
-form.get('username').disabled = {{form.get('username').disabled}}
-form.get('username').enabled = {{form.get('username').enabled}}
-form.get('username').valid = {{form.get('username').valid}}
-form.get('username').invalid = {{form.get('username').invalid}}
-form.get('username').errors = {{form.get('username').errors | json}}</pre>
+                    <span *ngIf="form.get('login.username').invalid && form.get('login.username')['errors']?.required">請輸入帳號</span>
+                    <span *ngIf="form.get('login.username').invalid && form.get('login.username')['errors']?.email">請輸入合法的 E-mail 信箱地址</span>
+                      <pre>form.get('login.username').value = {{form.get('login.username').value}}
+form.get('login.username').pristine = {{form.get('login.username').pristine}}
+form.get('login.username').dirty = {{form.get('login.username').dirty}}
+form.get('login.username').touched = {{form.get('login.username').touched}}
+form.get('login.username').untouched = {{form.get('login.username').untouched}}
+form.get('login.username').disabled = {{form.get('login.username').disabled}}
+form.get('login.username').enabled = {{form.get('login.username').enabled}}
+form.get('login.username').valid = {{form.get('login.username').valid}}
+form.get('login.username').invalid = {{form.get('login.username').invalid}}
+form.get('login.username').errors = {{form.get('login.username').errors | json}}</pre>
                   </div>
-                  <div class="form-group" [class.input-error]="f.submitted && form.get('password').invalid">
+                  <div class="form-group" [class.input-error]="f.submitted && form.get('login.password').invalid">
                     <input type="password" class="form-control form-control-user" id="exampleInputPassword"
                       placeholder="Password"
                       formControlName="password">
-                      <pre>form.get('password').value = {{form.get('password').value}}
-form.get('password').pristine = {{form.get('password').pristine}}
-form.get('password').dirty = {{form.get('password').dirty}}
-form.get('password').touched = {{form.get('password').touched}}
-form.get('password').untouched = {{form.get('password').untouched}}
-form.get('password').disabled = {{form.get('password').disabled}}
-form.get('password').enabled = {{form.get('password').enabled}}
-form.get('password').valid = {{form.get('password').valid}}
-form.get('password').invalid = {{form.get('password').invalid}}
-form.get('password').errors = {{form.get('password').errors | json}}</pre>
+                      <pre>form.get('login.password').value = {{form.get('login.password').value}}
+form.get('login.password').pristine = {{form.get('login.password').pristine}}
+form.get('login.password').dirty = {{form.get('login.password').dirty}}
+form.get('login.password').touched = {{form.get('login.password').touched}}
+form.get('login.password').untouched = {{form.get('login.password').untouched}}
+form.get('login.password').disabled = {{form.get('login.password').disabled}}
+form.get('login.password').enabled = {{form.get('login.password').enabled}}
+form.get('login.password').valid = {{form.get('login.password').valid}}
+form.get('login.password').invalid = {{form.get('login.password').invalid}}
+form.get('login.password').errors = {{form.get('login.password').errors | json}}</pre>
+                  </div>
+
                   </div>
 
                   <div class="form-group">
