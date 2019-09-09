@@ -27,23 +27,23 @@ export class LoginComponent implements OnInit {
     this.form = this.fb.group({
       ids: this.fb.array([
         this.fb.group({
-          username: ['doggy.huang@gmail.com',
+          username: ['',
             [Validators.required, Validators.email]
           ],
-          password: ['123',
+          password: ['',
             [Validators.required, Validators.minLength(3)]
           ],
         }),
         this.fb.group({
-          username: ['will.huang@miniasp.com',
+          username: ['',
             [Validators.required, Validators.email]
           ],
-          password: ['123',
+          password: ['',
             [Validators.required, Validators.minLength(3)]
           ],
         })
       ]),
-      rememberMe: true
+      rememberMe: false
     });
   }
 
@@ -57,6 +57,22 @@ export class LoginComponent implements OnInit {
         [Validators.required, Validators.minLength(3)]
       ],
     }));
+  }
+
+  resetForm() {
+    this.form.reset({
+      ids: [
+        {
+          username: 'doggy.huang@gmail.com',
+          password: '123'
+        },
+        {
+          username: 'will.huang@miniasp.com',
+          password: '123'
+        }
+      ],
+      rememberMe: true
+    });
   }
 
   onSubmit() {
