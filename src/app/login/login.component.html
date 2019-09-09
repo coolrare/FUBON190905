@@ -17,7 +17,7 @@
                 </div>
                 <pre>data = {{data|json}}</pre>
                 <pre>form.value = {{form.value|json}}
-form.submitted = {{form.submitted}}
+f.submitted = {{f.submitted}}
 form.pristine = {{form.pristine}}
 form.dirty = {{form.dirty}}
 form.touched = {{form.touched}}
@@ -27,52 +27,45 @@ form.enabled = {{form.enabled}}
 form.valid = {{form.valid}}
 form.invalid = {{form.invalid}}
 form.errors = {{form.errors | json}}</pre>
-                <form class="user" (ngSubmit)="onSubmit(form)" #form="ngForm">
+                <form [formGroup]="form" class="user" (ngSubmit)="onSubmit(f)" #f="ngForm">
 
-                  <div ngModelGroup="login" #mLoginGroup="ngModelGroup">
-
-                  <div class="form-group" [class.input-error]="form.submitted && mUsername.invalid">
+                  <div class="form-group" [class.input-error]="f.submitted && form.get('username').invalid">
                     <input type="email" class="form-control form-control-user" id="exampleInputEmail"
                       aria-describedby="emailHelp" placeholder="Enter Email Address..."
-                      [(ngModel)]="data.username" name="username"
-                      #mUsername="ngModel" required email>
-                    <span *ngIf="mUsername.invalid && mUsername['errors']?.required">請輸入帳號</span>
-                    <span *ngIf="mUsername.invalid && mUsername['errors']?.email">請輸入合法的 E-mail 信箱地址</span>
-                      <pre>mUsername.value = {{mUsername.value}}
-mUsername.pristine = {{mUsername.pristine}}
-mUsername.dirty = {{mUsername.dirty}}
-mUsername.touched = {{mUsername.touched}}
-mUsername.untouched = {{mUsername.untouched}}
-mUsername.disabled = {{mUsername.disabled}}
-mUsername.enabled = {{mUsername.enabled}}
-mUsername.valid = {{mUsername.valid}}
-mUsername.invalid = {{mUsername.invalid}}
-mUsername.errors = {{mUsername.errors | json}}</pre>
+                      formControlName="username">
+                    <span *ngIf="form.get('username').invalid && form.get('username')['errors']?.required">請輸入帳號</span>
+                    <span *ngIf="form.get('username').invalid && form.get('username')['errors']?.email">請輸入合法的 E-mail 信箱地址</span>
+                      <pre>form.get('username').value = {{form.get('username').value}}
+form.get('username').pristine = {{form.get('username').pristine}}
+form.get('username').dirty = {{form.get('username').dirty}}
+form.get('username').touched = {{form.get('username').touched}}
+form.get('username').untouched = {{form.get('username').untouched}}
+form.get('username').disabled = {{form.get('username').disabled}}
+form.get('username').enabled = {{form.get('username').enabled}}
+form.get('username').valid = {{form.get('username').valid}}
+form.get('username').invalid = {{form.get('username').invalid}}
+form.get('username').errors = {{form.get('username').errors | json}}</pre>
                   </div>
-                  <div class="form-group" [class.input-error]="form.submitted && mPassword.invalid">
+                  <div class="form-group" [class.input-error]="f.submitted && form.get('password').invalid">
                     <input type="password" class="form-control form-control-user" id="exampleInputPassword"
                       placeholder="Password"
-                      [(ngModel)]="data.password" name="password"
-                      #mPassword="ngModel" required>
-                      <pre>mPassword.value = {{mPassword.value}}
-mPassword.pristine = {{mPassword.pristine}}
-mPassword.dirty = {{mPassword.dirty}}
-mPassword.touched = {{mPassword.touched}}
-mPassword.untouched = {{mPassword.untouched}}
-mPassword.disabled = {{mPassword.disabled}}
-mPassword.enabled = {{mPassword.enabled}}
-mPassword.valid = {{mPassword.valid}}
-mPassword.invalid = {{mPassword.invalid}}
-mPassword.errors = {{mPassword.errors | json}}</pre>
-                  </div>
-
+                      formControlName="password">
+                      <pre>form.get('password').value = {{form.get('password').value}}
+form.get('password').pristine = {{form.get('password').pristine}}
+form.get('password').dirty = {{form.get('password').dirty}}
+form.get('password').touched = {{form.get('password').touched}}
+form.get('password').untouched = {{form.get('password').untouched}}
+form.get('password').disabled = {{form.get('password').disabled}}
+form.get('password').enabled = {{form.get('password').enabled}}
+form.get('password').valid = {{form.get('password').valid}}
+form.get('password').invalid = {{form.get('password').invalid}}
+form.get('password').errors = {{form.get('password').errors | json}}</pre>
                   </div>
 
                   <div class="form-group">
                     <div class="custom-control custom-checkbox small">
                       <input type="checkbox" class="custom-control-input" id="customCheck"
-                        [(ngModel)]="data.rememberMe" name="rememberMe"
-                        #mRememberMe="ngModel">
+                      formControlName="rememberMe">
                       <label class="custom-control-label" for="customCheck">Remember Me</label>
                     </div>
                   </div>

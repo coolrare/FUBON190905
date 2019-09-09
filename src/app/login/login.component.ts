@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { NgForm } from '@angular/forms';
+import { NgForm, FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -15,12 +15,20 @@ export class LoginComponent implements OnInit {
     rememberMe: true
   };
 
-  @ViewChild(NgForm, { static: true }) form: NgForm;
+  form: FormGroup;
 
-  constructor(private router: Router) { }
+  @ViewChild(NgForm, { static: true }) f: NgForm;
+
+  constructor(private router: Router, private fb: FormBuilder) { }
 
   ngOnInit() {
     document.body.className = 'bg-gradient-primary';
+
+    this.form = this.fb.group({
+      username: 'will.huang@miniasp.com',
+      password: '123',
+      rememberMe: true
+    });
   }
 
   onSubmit(form: NgForm) {
