@@ -15,7 +15,7 @@
                 <div class="text-center">
                   <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                 </div>
-                <pre>{{data|json}}</pre>
+                <pre>data = {{data|json}}</pre>
                 <pre>form.value = {{form.value|json}}
 form.submitted = {{form.submitted}}
 form.pristine = {{form.pristine}}
@@ -28,6 +28,9 @@ form.valid = {{form.valid}}
 form.invalid = {{form.invalid}}
 form.errors = {{form.errors | json}}</pre>
                 <form class="user" (ngSubmit)="onSubmit(form)" #form="ngForm">
+
+                  <div ngModelGroup="login" #mLoginGroup="ngModelGroup">
+
                   <div class="form-group" [class.input-error]="form.submitted && mUsername.invalid">
                     <input type="email" class="form-control form-control-user" id="exampleInputEmail"
                       aria-describedby="emailHelp" placeholder="Enter Email Address..."
@@ -62,6 +65,9 @@ mPassword.valid = {{mPassword.valid}}
 mPassword.invalid = {{mPassword.invalid}}
 mPassword.errors = {{mPassword.errors | json}}</pre>
                   </div>
+
+                  </div>
+
                   <div class="form-group">
                     <div class="custom-control custom-checkbox small">
                       <input type="checkbox" class="custom-control-input" id="customCheck"
